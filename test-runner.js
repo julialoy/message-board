@@ -25,15 +25,15 @@
 *
 */
 
-var analyser = require('./assertion-analyser');
-var EventEmitter = require('events').EventEmitter;
+const analyser = require('./assertion-analyser');
+const EventEmitter = require('events').EventEmitter;
 
-var Mocha = require('mocha'),
-    fs = require('fs'),
-    path = require('path');
+const Mocha = require('mocha'),
+      fs = require('fs'),
+      path = require('path');
 
-var mocha = new Mocha();
-var testDir = './tests'
+const mocha = new Mocha();
+const testDir = './tests'
 
 
 // Add each .js file to the mocha instance
