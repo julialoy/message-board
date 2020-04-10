@@ -190,6 +190,10 @@ module.exports = function (app) {
       } else if (req.params.board) {
         board = req.params.board;
       }
+      
+      if (threadId === undefined) {
+        threadId = req.body.report_id;
+      }
 
       const filters = {
         _id: threadId,
@@ -205,7 +209,6 @@ module.exports = function (app) {
               console.error(err);
               return res.json("Error. Could not save");
             }
-            console.log(`Reported thread ${threadId}`);
             return res.json("Success");
           });
         } else {
@@ -324,7 +327,7 @@ module.exports = function (app) {
       .catch( err => {
         console.error(err);
         return res.json({error: "Something went wrong"});
-      })
+      });
 
     })
     .delete(function(req, res) {
@@ -437,7 +440,6 @@ module.exports = function (app) {
                 console.error(err);
                 return res.json("Error. Could not save");
               }
-              console.log(`Reported reply ${replyId} in thread ${threadId}`);
               return res.json("Success");
             });
           });
@@ -450,7 +452,4 @@ module.exports = function (app) {
         return res.json("Error. Something went wrong");
       });
     });;
-
-
-
 };
