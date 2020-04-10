@@ -50,9 +50,6 @@ fccTestingRoutes(app);
 
 //Routing for API 
 apiRoutes(app);
-
-//Sample Front-end
-
     
 //404 Not Found Middleware
 app.use(function(req, res, next) {
